@@ -110,7 +110,7 @@ like and enjoy the game.😁
 - sign up/login boxes can be filled with just typing and pressing enter key no mouse actions off box selections
   will be recieved
 
-## 🛑 HOW TO USE AND PLAY THE GAME
+## 🛑 HOW TO CONVERT THE GAME TO A PLAYABLE FORMAT
 
 - This is an online game 
 - create a folder called "MINESWEEPER"
