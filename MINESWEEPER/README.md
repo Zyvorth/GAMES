@@ -73,5 +73,18 @@ like and enjoy the game.😁
   🛑 if you dont hold down the key "f" while right clicking the bomb will blast
 
   ![minesweeper](assets/flag.gif)
+
+  
+- The mines are randomly placed using the SECRETS module and the thing i really enjoyed about is that it works on the systems
+  ENTROPY ( i feel like i have seen this word everywhere, i really love it and i know it does simply explain most of the universe🗣️)
+
+  if you want to see its python documentation:
+
+    [![Click Here](https://img.shields.io/badge/Click%20Here-Open-blue?style=for-the-badge)](https://docs.python.org/3/library/secrets.html)
+
+- There is a top ten list from each mode which is made using SUPABASE :
+  (dont mind the names these are just fake names😂 that i had added while testing)
+
+  ![minesweeper](assets/top_ten.png)
   
     
