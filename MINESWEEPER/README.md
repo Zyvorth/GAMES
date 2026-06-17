@@ -63,7 +63,21 @@ like and enjoy the game.😁
   
     ![minesweeper](assets/hover.gif)
 
+- This is how it will look if you:(there are win and lose sound effects too)
+
+  - win:
+
+
+    ![minesweeper](assets/won.png)
+
+
+  - lost:
+
+
+    ![minesweeper](assets/lost.png)
   
+
+    
 - Has the ability to flag tile which are mine:
   to flag and deflag the key :
   - 1:"f"(hold down)
@@ -86,5 +100,35 @@ like and enjoy the game.😁
   (dont mind the names these are just fake names😂 that i had added while testing)
 
   ![minesweeper](assets/top_ten.png)
+
+## HOW TO PLAY AND INTERACT WITH THE GAME
+
+
+- All the actions pressing a button , revealing tiles all require right click only
+- to flag a tile hold down the key "f" and right click on the desired tile
+- deflag do the above again
+- sign up/login boxes can be filled with just typing and pressing enter key no mouse actions off box selections
+  will be recieved
+
+## 🛑 HOW TO USE AND PLAY THE GAME
+
+- This is an online game 
+- create a folder called "MINESWEEPER"
+- just add the files : minesweeper.py,minesweeper_back.py,MINESWEEPER_LAUNCHER.py,IMAGES,SOUNDS
+- ensure you are follwing the correct path otherwise feel free to change the path however you like
+- if you want you can convert this to a single executable with PYINSTALLER
+- also feel free to add logos and customise even the rules if you want as you like (but please dont use my supabase url it will not work create a database of your own)
+
+## Credits
+- All the png assets was from creator Nelson "skree" i found on itch.io heres the link:
+
+  [![Click Here](https://img.shields.io/badge/Click%20Here-Open-blue?style=for-the-badge)](https://nelson-skree-ga.itch.io/minesweeper-tiles)
+
+- SOUNDS where just random royalty free ones i found on internet
+  
+## Developer
+
+Made by ZYVORTH_Karthik
+  
   
     
