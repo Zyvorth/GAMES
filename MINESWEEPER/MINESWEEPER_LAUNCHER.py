@@ -63,14 +63,14 @@ try:
               user_gmail=user_gmail[:-1]
             elif pass_pass==False:
               user_gmail+=event.unicode
-              print(user_gmail)
+              
             elif pass_pass==True :
               if (event.key==pygame.K_RETURN or event.key==pygame.K_KP_ENTER) and len(user_password)!=0:
                 if user_gmail==data['gmail'] and user_password==data['password']:
                   
                   login=True
                 else:
-                  print("Wrong login")
+                  
                   user_gmail = ''
                   user_password = ''
                   pass_pass = False
@@ -129,25 +129,25 @@ except FileNotFoundError:
           run=False
         if event.type==pygame.KEYDOWN:
           if (event.key==pygame.K_RETURN or event.key==pygame.K_KP_ENTER) and pass_pass==False and len(user_gmail)!=0:
-            print("out of gmail")
+            
             pass_pass=True
           elif pass_pass==False and (event.key==pygame.K_DELETE or event.key==pygame.K_BACKSPACE):
             user_gmail=user_gmail[:-1]
           elif pass_pass==False:
             user_gmail+=event.unicode
-            print(user_gmail)
+            
           elif pass_pass==True and pass_name==False:
             if (event.key==pygame.K_RETURN or event.key==pygame.K_KP_ENTER) and len(user_password)!=0:
-              print("out of pass")
+              
               pass_name=True
             elif  (event.key==pygame.K_DELETE or event.key==pygame.K_BACKSPACE):
               user_password=user_password[:-1]
             else:
               user_password+=event.unicode
-              print(user_password)
+              
           elif pass_name==True:
             if (event.key==pygame.K_RETURN or event.key==pygame.K_KP_ENTER) and len(user_name)!=0:
-              print("out of name")
+              
               pass_name==False
               new_id=str(uuid.uuid4())
               data={'gmail':user_gmail,'password':user_password,'name':user_name,'u_id':new_id,'last_date':date.today().isoformat()}
@@ -160,7 +160,7 @@ except FileNotFoundError:
               user_name=user_name[:-1]
             else:
               user_name+=event.unicode
-              print(user_name)
+              
   
       win.fill((0,0,0))
       win.blit(title,(400,40))
