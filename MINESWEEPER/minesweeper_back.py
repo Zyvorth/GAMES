@@ -271,11 +271,7 @@ def mine_initializer(mode):
         c_no=(y_no-1)*30+x_no
         mine.append(c_no)
         cell[c_no-1]["mine"]=1
-  print("Mine count:", len(mine))
-  
 
-'''def reveal_mine():
-  if click_result()'''
   
 
 
@@ -488,8 +484,7 @@ def mine_no(win,mode,inside,k):
               c_mine+=1
             if cell[n_index-9-1]["mine"]==1 :
               c_mine+=1
-            i["count"]=c_mine
-            print("SETTING AROUND FOR TILE",n_index+1) 
+            i["count"]=c_mine 
             i["around"]=[n_index-1+1,n_index-9+1,n_index-9-1+1]          
             
           
