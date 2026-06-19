@@ -241,6 +241,7 @@ def main():
   restart_1=False
   restart_2=False
   restart_3=False
+  
   while run:
     clock.tick(60)
     if not typed:
