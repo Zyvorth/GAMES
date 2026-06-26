@@ -6,8 +6,6 @@ import secrets
 pygame.init()
 cell=[]
 mine=[]
-
-#MOST OF THE IMAGES LOADED
 flag=pygame.image.load("IMAGES/minesweeper_tiles/masked_tile_flag.png")
 flag_1=pygame.transform.scale(flag,(40,40))
 flag_2=pygame.transform.scale(flag,(35,35))
@@ -220,8 +218,7 @@ def tile_placer(win,mode):
         if i["count"]==8:
 
           win.blit(img_8_3,(i["x_pos"],i["y_pos"])) 
-
-
+          
 def mine_initializer(mode):
   mine.clear()
   if mode==1:
@@ -271,6 +268,9 @@ def mine_initializer(mode):
         c_no=(y_no-1)*30+x_no
         mine.append(c_no)
         cell[c_no-1]["mine"]=1
+ 
+  
+
 
   
 
@@ -341,9 +341,6 @@ def mine_result(win,mode,res):
             you_lost_can=pygame.draw.rect(win,(255,0,0),(300,25,400,50),0,5)
             pygame.draw.rect(win,(255,255,255),(300,25,400,50),2,5) 
             win.blit(you_lost,(300+((400-you_lost.get_width())//2),25+((50-you_lost.get_height())//2))) 
-
-
-
 def mine_no(win,mode,inside,k):
   i=cell[k-1]
   if mode==1:
@@ -484,7 +481,8 @@ def mine_no(win,mode,inside,k):
               c_mine+=1
             if cell[n_index-9-1]["mine"]==1 :
               c_mine+=1
-            i["count"]=c_mine 
+            i["count"]=c_mine
+            
             i["around"]=[n_index-1+1,n_index-9+1,n_index-9-1+1]          
             
           
@@ -766,7 +764,6 @@ def mine_no(win,mode,inside,k):
               c_mine+=1
             i["count"]=c_mine
             i["around"]=[n_index-1+1,n_index-30+1,n_index-30-1+1]
-            
                       
 def return_tile_no(mode):
   if mode==1:
@@ -790,8 +787,6 @@ def return_tile_no(mode):
           n_x=i["tile_no_x"]
           n_y=i["tile_no_y"]
           return ((n_y-1)*30+n_x)
-
-
 def reveal_zero(mode,win,i,first):
   if mode==1:
     if cell[i-1]["mine"]==1 or cell[i-1]["flag"]==1:
@@ -829,9 +824,6 @@ def reveal_zero(mode,win,i,first):
             mine_no(win,mode,True,j)
             if cell[j-1]["count"]==0:
               reveal_zero(3,win,j,False)     
-
-
-
 def flagged(n):
     if n is None:
         return
@@ -864,4 +856,5 @@ def win(mode):
     if c==381:
       return True
          
+
 
