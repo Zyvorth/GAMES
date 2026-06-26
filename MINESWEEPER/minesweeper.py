@@ -13,6 +13,8 @@ hover_img_1 = pygame.transform.scale(hover_img,(40, 40))
 hover_img_2 = pygame.transform.scale(hover_img,(35, 35))
 hover_img_3 = pygame.transform.scale(hover_img,(30,30))
 
+
+
 def hover(mode,cell,stat):
   if stat==False:
     if mode==1:
@@ -38,7 +40,9 @@ def hover(mode,cell,stat):
           win.blit(hover_img_3,(i["x_pos"],i["y_pos"]))
   else:
     return 
-    
+
+
+
 
 def draw_again():
   FONT1=pygame.font.SysFont("Consolas",32,bold=True)
@@ -57,6 +61,7 @@ def draw_again():
   pygame.display.update()
   
   
+
 
 class banner():
   def __init__(self,text,posx,posy,width,height):
@@ -85,7 +90,8 @@ class banner():
         str_txt=j
     k=FONT2.render(str_txt,True,'white')
     win.blit(k,((self.posx+((self.width-k.get_width())//2)),self.posy+c))
-    
+
+
 
 def draw():
   text_c = 0
@@ -131,6 +137,8 @@ def draw():
   pygame.display.update()
   
 
+
+
 class Button():
   def __init__(self,text,x_pos,y_pos,width,height,color,enabled):
     self.text=text
@@ -161,7 +169,7 @@ class Button():
     else:
       return False
 
-#INTIALIZING PART
+
 
 WIDTH,HEIGHT=1000,800
 win=pygame.display.set_mode((WIDTH,HEIGHT))
@@ -173,7 +181,9 @@ FONT2=pygame.font.SysFont("Consolas",20)
 l_text = "Welcome To Minesweeper ! Please Chose the level you want to play at"
 l_text_individual = [len("Welcome To Minesweeper !"),len("Please Chose the level you want to play at")]
     
-  
+
+
+
 def main():
   with open('user_minesweep_data.json', 'r') as f:
         data=json.load(f)
@@ -241,7 +251,6 @@ def main():
   restart_1=False
   restart_2=False
   restart_3=False
-  
   while run:
     clock.tick(60)
     if not typed:
@@ -319,6 +328,7 @@ def main():
             supabase.table("top_ten_beginner")
             .select("*")
             .order("time")
+            .limit(10)
             .execute())
         l_beg=[]
         c_beg=1
@@ -409,7 +419,7 @@ def main():
       while beginner:
         if mine_status==False:
           time_elapsed=round(time.time()-(current_time),2)
-        elif mine_status==True and won==True:
+        elif mine_status==True and won==True :
           won=False
           response = (
               supabase.table("top_ten_beginner")
@@ -417,7 +427,6 @@ def main():
               .order("time")
               .execute())
           scores = response.data
-          print("DATA =", data)
           if len(scores) < 10:
             supabase.table("top_ten_beginner").insert({
               "player_id": data["u_id"],
@@ -429,10 +438,13 @@ def main():
             worst_score = scores[-1]["time"]
             if time_elapsed < worst_score:
               worst_player_id = scores[-1]["player_id"]
+              worst_player_time=scores[-1]["time"]
               supabase.table("top_ten_beginner") \
               .delete() \
               .eq("player_id", worst_player_id) \
+              .eq("time",worst_player_time) \
               .execute()
+              
               supabase.table("top_ten_beginner").insert({
               "player_id": data["u_id"],
               "player_name": data["name"],
@@ -477,7 +489,7 @@ def main():
             mine_status=True
           #minesweeper_back.mine_no(win,1)
         keys = pygame.key.get_pressed()
-        if tile_reveal==True and right_click==True and keys[pygame.K_f]==False :
+        if tile_reveal==True and right_click==True and keys[pygame.K_f]==False and mine_status==False  :
           n=minesweeper_back.return_tile_no(1)
           if n==None:
             pass
@@ -488,6 +500,7 @@ def main():
           
         if mine_status==True:
           minesweeper_back.mine_result(win,1,1)
+          
         hover(1,cell,mine_status)
         if first_w and minesweeper_back.win(1) :
           won=True
@@ -500,7 +513,7 @@ def main():
           win.blit(you_won,(300+((400-you_won.get_width())//2),25+((50-you_won.get_height())//2)))
           mine_status=True
           first_w=False
-        elif first_w==False:
+        elif first_w==False :
           FONT1=pygame.font.SysFont("Consolas",50,bold=True)
           you_won = FONT1.render("YOU WON", True, (255,255,255))
           you_won_can=pygame.draw.rect(win,(0,255,0),(300,25,400,50),0,5)
@@ -523,9 +536,8 @@ def main():
           typed_again=True
           mine_status=False
           tile_reveal=False
+          
           break
-
-    
     if intermediate_button.button_clicked() or restart_2==True:
       won=False
       current_time=time.time()
@@ -605,7 +617,7 @@ def main():
             explosion = pygame.mixer.Sound("SOUNDS/explosion.mp3")
             explosion.play()
             mine_status=True
-        if tile_reveal==True and right_click==True and keys[pygame.K_f]==False:
+        if tile_reveal==True and right_click==True and keys[pygame.K_f]==False and mine_status==False:
           n=minesweeper_back.return_tile_no(2)
           if n==None:
             pass
@@ -782,5 +794,7 @@ def main():
       if event.type == pygame.QUIT:
         run = False
   pygame.quit()
+
+
 if __name__=="__main__":
   main()
