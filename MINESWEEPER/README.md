@@ -11,6 +11,8 @@ like and enjoy the game.😁
 
 ## FEAUTURES
 
+- This game can be played offline too but note that if offline the time data will not be        pushed to the global rank list 
+
 - Has a retro vibe
 
 - The game has a login/sign up option:
